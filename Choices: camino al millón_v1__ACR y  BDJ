@@ -1,14 +1,14 @@
-#Parte inicial, movimiento en las ventanas
+# Parte inicial, movimiento en las ventanas
 
-import tkinter as tk   
+import tkinter as tk
 from tkinter import *
-from tkinter import font, ttk    
-import random         
+from tkinter import font, ttk
+import random
+
 
 class Global(tk.Tk):
 
     def __init__(self):
-
         tk.Tk.__init__(self)
 
         container = tk.Frame(self, bg="Black")
@@ -31,15 +31,12 @@ class Global(tk.Tk):
         frame.tkraise()
 
 
-    
-
-
 class Portada(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, bg="#F0F0F0")
         self.controller = controller
         self.controller.geometry('800x500')
-        self.controller.resizable(0,0)
+        self.controller.resizable(0, 0)
 
         self.titulo = PhotoImage(file="titulo1.png")
         marco = Label(self, image=self.titulo).pack(side="top")
@@ -47,72 +44,73 @@ class Portada(tk.Frame):
         self.titulo2 = PhotoImage(file="titulo2_1.png")
         marco2 = Label(self, image=self.titulo2).pack(side="top")
 
-        button1 = tk.Button(self, text="Jugar", bg="white", fg="#5A5757", command=lambda: controller.show_frame("Nombre"))
+        button1 = tk.Button(self, text="Jugar", bg="white", fg="#5A5757",
+                            command=lambda: controller.show_frame("Nombre"))
         button1.pack(side="top", padx=0, pady=20, ipadx=2, ipady=2)
-        button1.config(width=8, height=1, font=("Times New Roman",30))
+        button1.config(width=8, height=1, font=("Times New Roman", 30))
 
         self.fondo = PhotoImage(file="dineros.png")
         imagen1 = Label(self, image=self.fondo).pack(side="top")
 
 
-
 class Nombre(tk.Frame):
 
     def __init__(self, parent, controller):
-
         tk.Frame.__init__(self, parent, bg="#F0F0F0")
         self.controller = controller
-        label = tk.Label(self, text="Ingresa tu Nombre", font=("Times New Roman",50), fg="#403D3D")
+        label = tk.Label(self, text="Ingresa tu Nombre", font=("Times New Roman", 50), fg="#403D3D")
         label.pack(side="top", fill="x", pady=10)
 
-        self.entrada = tk.Entry(self, font=font.Font(family="Times", size=20),bg="#93928F", fg="White")
+        self.entrada = tk.Entry(self, font=font.Font(family="Times", size=20), bg="#93928F", fg="White")
         self.entrada.pack(side="top")
 
-        button0 = tk.Button(self, text="Guardar", bg="white", fg="#5A5757" )
-        button0.pack(side="right", padx=10,pady=20)
-        button0.config(width=6, height=1, font=("Times New Roman",10))
+        button0 = tk.Button(self, text="Guardar", bg="white", fg="#5A5757")
+        button0.pack(side="right", padx=10, pady=20)
+        button0.config(width=6, height=1, font=("Times New Roman", 10))
         button0.place(x=550, y=110)
 
-        button1 = tk.Button(self, text="Siguiente", bg="white", fg="#5A5757", command=lambda: controller.show_frame("Sexo") )
-        button1.pack(side="top", padx=10,pady=20)
-        button1.config(width=8, height=1, font=("Times New Roman",25))
+        button1 = tk.Button(self, text="Siguiente", bg="white", fg="#5A5757",
+                            command=lambda: controller.show_frame("Sexo"))
+        button1.pack(side="top", padx=10, pady=20)
+        button1.config(width=8, height=1, font=("Times New Roman", 25))
 
-        button2 = tk.Button(self, text="Volver", bg="white", fg="#5A5757", command=lambda: controller.show_frame("Portada"))
+        button2 = tk.Button(self, text="Volver", bg="white", fg="#5A5757",
+                            command=lambda: controller.show_frame("Portada"))
         button2.pack(side="top", padx=20, pady=20)
-        button2.config(width=8, height=1, font=("Times New Roman",25))
+        button2.config(width=8, height=1, font=("Times New Roman", 25))
 
-        
+
 class Sexo(tk.Frame):
 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        label = tk.Label(self, text="Elige tu personaje", font=("Times New Roman",50), fg="#403D3D")
+        label = tk.Label(self, text="Elige tu personaje", font=("Times New Roman", 50), fg="#403D3D")
         label.pack(side="top", fill="x", pady=10)
 
         self.foto = PhotoImage(file="tipo2.png")
-        Hombre = Label(self, image = self.foto).pack(side="left", padx=50, pady=0)
+        Hombre = Label(self, image=self.foto).pack(side="left", padx=50, pady=0)
 
         self.foto2 = PhotoImage(file="tipa.png")
-        Mujer = Label(self, image = self.foto2).pack(side="right", padx=50, pady=0)
+        Mujer = Label(self, image=self.foto2).pack(side="right", padx=50, pady=0)
 
         botonhombre = tk.Button(self, text="Hombre", bg="white")
         botonhombre.pack(side="top", padx=25, pady=25, ipadx=5, ipady=5)
-        botonhombre.config(width=8, height=1, font=("Times New Roman",20))
+        botonhombre.config(width=8, height=1, font=("Times New Roman", 20))
 
         botonmujer = tk.Button(self, text="Mujer", bg="white")
         botonmujer.pack(side="top", padx=25, pady=25, ipadx=5, ipady=5)
-        botonmujer.config(width=7, height=1, font=("Times New Roman",20))
+        botonmujer.config(width=7, height=1, font=("Times New Roman", 20))
 
         button2 = tk.Button(self, text="Volver", bg="white", command=lambda: controller.show_frame("Nombre"))
         button2.pack()
         button2.place(x=150, y=425, width=150, height=50)
-        button2.config(width=6, height=1, font=("Times New Roman",20))
+        button2.config(width=6, height=1, font=("Times New Roman", 20))
 
         button = tk.Button(self, text="Siguiente", bg="white", command=lambda: controller.show_frame("Empresa"))
         button.pack()
         button.place(x=550, y=425, width=150, height=50)
-        button.config(width=6, height=1, font=("Times New Roman",20))
+        button.config(width=6, height=1, font=("Times New Roman", 20))
 
 
 class Empresa(tk.Frame):
@@ -120,23 +118,25 @@ class Empresa(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        label = tk.Label(self, text="Elige el nombre de tu Empresa", font=("Times New Roman",35))
+        label = tk.Label(self, text="Elige el nombre de tu Empresa", font=("Times New Roman", 35))
         label.pack(side="top", fill="x", pady=10)
 
-        entrada = tk.Entry(self, font=font.Font(family="Times", size=20),bg="#93928F", fg="White")
+        entrada = tk.Entry(self, font=font.Font(family="Times", size=20), bg="#93928F", fg="White")
         entrada.pack(side="top")
 
-        button = tk.Button(self, text="Comenzar", bg="white", fg="#5A5757", command=lambda: controller.show_frame("Home"))
+        button = tk.Button(self, text="Comenzar", bg="white", fg="#5A5757",
+                           command=lambda: controller.show_frame("Home"))
         button.pack(side="top", padx=20, pady=10)
-        button.config(width=8, height=1, font=("Times New Roman",25))
+        button.config(width=8, height=1, font=("Times New Roman", 25))
 
-        button2 = tk.Button(self, text="Volver", fg="#5A5757", bg="white", command=lambda: controller.show_frame("Sexo"))
+        button2 = tk.Button(self, text="Volver", fg="#5A5757", bg="white",
+                            command=lambda: controller.show_frame("Sexo"))
         button2.pack(side="top", padx=20, pady=5)
-        #button2.place(x=150, y=425, width=150, height=50)
-        button2.config(width=8, height=1, font=("Times New Roman",25))
+        # button2.place(x=150, y=425, width=150, height=50)
+        button2.config(width=8, height=1, font=("Times New Roman", 25))
 
         self.i = PhotoImage(file="jazz.png")
-        fondo = Label(self, image = self.i). pack(side="top", padx=0, pady=0)
+        fondo = Label(self, image=self.i).pack(side="top", padx=0, pady=0)
 
 
 class Home(tk.Frame):
@@ -156,7 +156,7 @@ class Home(tk.Frame):
         label3.pack(side="right", padx=10, pady=10)
         label3.config(width=55, height=15)
 
-        label10 = tk.Label(self, bg="white", text="Hola", padx=5, pady=5, font=("Times New Roman",10))
+        label10 = tk.Label(self, bg="white", text="Hola", padx=5, pady=5, font=("Times New Roman", 10))
         label10.pack()
         label10.place(x=300, y=20, width=10, height=4)
 
@@ -166,15 +166,72 @@ class Juego(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        
+
         dinero = 10000
-        cajadinero = tk.Label(self, text=dinero )
+        cajadinero = tk.Label(self, text=dinero)
         cajadinero.pack(side="left")
 
-        label = tk.Label(self, text="Home", font=("cursive",25))
+        label = tk.Label(self, text="Home", font=("cursive", 25))
         label.pack(side="top", fill="x", pady=10)
-         
-         
+
+        root = Tk()
+        root.geometry("800x500")
+        root.resizable(False, False)
+
+        pregunta = StringVar()
+        pregunta.set("Pregunta \n(haz click en uno de los botones para iniciar)")
+        opcion1 = StringVar()
+        opcion1.set("Opcion 1")
+        opcion2 = StringVar()
+        opcion2.set("Opcion 2")
+
+        lblPregunta = Label(root, textvariable=pregunta, font=("Arial", 12))
+        lblPregunta.pack()
+        lblPregunta.config(bg="gray75")
+
+        lblDinero = Label(root, textvariable=dinero, font=("Arial", 12))
+        lblDinero.pack()
+
+        btnOpcion1 = Button(root, text="SI", command=lambda: [Pregunta(1)])
+        btnOpcion1.pack()
+        btnOpcion1.config(bg="lime")
+        btnOpcion1.place(x=200, y=250, width=50, height=50)
+
+        lblOpcion1 = Label(root, textvariable=opcion1, font=("Arial", 12))
+        lblOpcion1.pack()
+        lblOpcion1.config(bg="lime")
+        lblOpcion1.place(x=150, y=125, width=200, height=100)
+
+        btnOpcion2 = Button(root, text="NO", command=lambda: [Pregunta(0)])
+        btnOpcion2.pack()
+        btnOpcion2.config(bg="red")
+        btnOpcion2.place(x=500, y=250, width=50, height=50)
+
+        lblOpcion2 = Label(root, textvariable=opcion2, font=("Arial", 15))
+        lblOpcion2.pack()
+        lblOpcion2.config(bg="red")
+        lblOpcion2.place(x=450, y=125, width=200, height=100)
+
+        def Pregunta(op):
+            diccionario = {
+                "Deseas invertir la mitad de tus acciones por 150,000 dolares? \n(50% que pierdas el dinero)": ["Si",
+                                                                                                                "No"],
+                "Expandiria su empresa al extranjero por un costo de 50,000? \n(75% de que genere 100,000 dolares)": [
+                    "Si",
+                    "No"],
+                "Deseas invertir la mitad de tu dinero en la bolsa de valores? \n(Puede que generes 0.5 a 2 veces de ganancias)": [
+                    "Si", "No"],
+                "Una empresa nueva acaba de abrir cerca de la tuya, te juntarias con ella? \n(85% de que generes 50,000 dolares)": [
+                    "Si", "No"],
+                "Un amigo te pide que hagas un trbajo de dudosa procedencia por 50,000 dolares, lo harias? \n(20% de perder todo el dinero)": [
+                    "Si", "No"]}
+            x = random.choice(list(diccionario))
+            pregunta.set(x)
+            opcion1.set(diccionario[x][0])
+            opcion2.set(diccionario[x][1])
+
+        root.mainloop()
+
 if __name__ == "__main__":
     app = Global()
     app.mainloop()
